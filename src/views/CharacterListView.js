@@ -15,14 +15,15 @@ class CharacterListView extends React.Component {
 
   render() {
     console.log(this.props.characters)
-    if (this.props.isFetching) {
-      <div>
-        <Loader type="Ball-Triangle" color="#00BFFF" height="50" width="50" />
-      </div>
-    }
+
     return (
-      <div className="CharactersList_wrapper">
-        {this.props.characters && <CharacterList characters={this.props.characters} />}
+      <div>
+          <div>
+            {this.props.isFetching && <Loader type="Ball-Triangle" color="#00BFFF" height="50" width="50" />}
+          </div>
+          <div className="CharactersList_wrapper">
+            {this.props.characters && <CharacterList characters={this.props.characters} />}
+          </div>
       </div>
     );
   }
