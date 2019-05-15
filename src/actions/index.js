@@ -14,11 +14,11 @@ export const FETCH_SWAP_SUCCESS = "FETCH_SWAP_SUCCESS";
 export const FETCH_SWAP_FAILURE = "FETCH_SWAP_FAILURE";
 
 export const getSwapi = () => dispatch => {
-    dispatch({ type: FETCH_SWAP_START});
+    dispatch({ type: FETCH_SWAP_START });
     axios
         .get("https://swapi.co/api/people/")
         .then(res => {
-            dispatch({ type: FETCH_SWAP_SUCCESS, payload: res.data })
+            dispatch({ type: FETCH_SWAP_SUCCESS, payload: res.data.results })
         })
         .catch(err => {
             dispatch({ type: FETCH_SWAP_FAILURE, payload: `${err}`})

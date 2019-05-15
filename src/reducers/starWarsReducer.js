@@ -1,9 +1,7 @@
 import { 
   FETCH_SWAP_START,
-  FETCH_SWAP_START,
   FETCH_SWAP_FAILURE, 
   FETCH_SWAP_SUCCESS,
-  FETCH_SWAP_FAILURE
 } from "../actions";
 
 const initialState = {
