@@ -6,3 +6,21 @@
 // our action creator will be a function that returns a function
 // the url to fetch characters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based action creator
+
+import axios from 'axios';
+
+export const FETCH_SWAP_START = "FETCH_SWAP_START";
+export const FETCH_SWAP_SUCCESS = "FETCH_SWAP_SUCCESS";
+export const FETCH_SWAP_FAILURE = "FETCH_SWAP_FAILURE";
+
+export const getSwapi = () => dispatch => {
+    dispatch({ type: FETCH_SWAP_START});
+    axios
+        .get("https://swapi.co/api/people/")
+        .then(res => {
+            dispatch({ type: FETCH_SWAP_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            dispatch({ type: FETCH_SWAP_FAILURE, payload: `${err}`})
+        });
+};
